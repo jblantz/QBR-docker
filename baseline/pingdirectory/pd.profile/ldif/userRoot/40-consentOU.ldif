@@ -1,5 +1,0 @@
-dn: ou=Consents,dc=example,dc=com
-changetype: add
-objectClass: organizationalUnit
-objectClass: top
-ou: Consents
