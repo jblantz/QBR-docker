@@ -22,5 +22,28 @@ dsconfig create-consent-definition-localization \
 dsconfig set-trust-manager-provider-prop \
     --provider-name "Blind Trust"  \
     --set enabled:true
+    
+dsconfig create-external-server \
+    --server-name PingFederate  \
+    --type http  \
+    --set base-url:https://pingfederate:9031 
+    
+dsconfig create-access-token-validator \
+    --validator-name PingFederate  \
+    --type ping-federate  \
+    --set "identity-mapper:Exact Match"  \
+    --set subject-claim-name:Username  \
+    --set enabled:true  \
+    --set authorization-server:PingFederate  \
+    --set client-id:rs_client  \
+    --set "client-secret:AABrxmR3AT//iXR3VtqAyW3C7a+hfkpBX8g="
+    
+dsconfig set-identity-mapper-prop \
+    --mapper-name "Exact Match"  \
+    --add match-attribute:entryuuid
+    
+dsconfig set-http-servlet-extension-prop \
+    --extension-name Consent  \
+    --set access-token-validator:PingFederate
 
 
