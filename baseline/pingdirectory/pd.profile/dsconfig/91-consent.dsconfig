@@ -1,7 +1,5 @@
 dsconfig set-consent-service-prop --set enabled:true --set base-dn:ou=Consents,dc=example,dc=com --set bind-dn:cn=administrator --set "consent-record-identity-mapper:Exact Match" --set service-account-dn:cn=administrator --set unprivileged-consent-scope:pd:consent:unpriv --set privileged-consent-scope:pd:consent:priv --no-prompt \
 
-dsconfig create-consent-definition --definition-name QBR2019 --set display-name:QBR2019 --no-prompt \
-
 dsconfig create-consent-definition-localization --definition-name QBR2019 --localization-name en --set version:1.0 --set "title-text:QBR2019 Consent Definition" --set "data-text:This record allows us to collect data" --set "purpose-text:You don’t need to know why" --no-prompt \
  
  dsconfig set-trust-manager-provider-prop --provider-name "Blind Trust" --set enabled:true --no-prompt \
